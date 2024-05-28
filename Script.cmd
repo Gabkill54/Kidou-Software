@@ -3,13 +3,6 @@
 @set kidver=V1.5.4
 set "params=%*"
 
->nul 2>&1 net session && (
-    goto :main
-) || (
-    powershell -Command "Start-Process cmd -ArgumentList '/c \"%~f0\" %params%' -Verb runAs"
-    exit /b
-)
-
 :main
 title Kidou_Software %kidver%
 reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore" /v SystemRestorePointCreationFrequency /t REG_DWORD /d 0 /f
