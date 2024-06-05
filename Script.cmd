@@ -106,7 +106,7 @@ echo Merci de patienter...
 timeout /t 2 >nul
 cls
 echo.
-shutdown /r /fw
+shutdown.exe /r /fw /t 0
 exit
 
 :option4
