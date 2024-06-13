@@ -41,11 +41,10 @@ catch {
 }
 
 $ScriptArgs = "$args "
-$prefix = "@REM $rand `r`n"
 $content = $prefix + $response
 Set-Content -Path $FilePath -Value $content
 
-Start-Process $FilePath $ScriptArgs -Wait
+Start-Process powershell.exe -ArgumentList "-NoExit", "-File", "`"$FilePath`"" -Wait
 
 if (Test-Path $FilePath) {
     Remove-Item $FilePath
