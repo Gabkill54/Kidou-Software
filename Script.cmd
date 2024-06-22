@@ -7,6 +7,9 @@ set "params=%*"
 title Kidou_Software %kidver%
 reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore" /v SystemRestorePointCreationFrequency /t REG_DWORD /d 0 /f
 cls
+echo.
+echo Sauvegarde rapide du systeme
+echo.
 powershell Checkpoint-Computer -Description "Utilisation-du-script-de-Kidou" -RestorePointType MODIFY_SETTINGS
 reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore" /v SystemRestorePointCreationFrequency /t REG_DWORD /d 1440 /f
 cls
@@ -156,7 +159,7 @@ timeout /t 10 >nul
 echo.
 echo Changement de script en cours
 echo.
-powershell -Command "irm https://massgrave.dev/get | iex"
+powershell -Command "irm https://get.activated.win | iex"
 exit
 
 :option6
