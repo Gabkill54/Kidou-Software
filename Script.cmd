@@ -18,7 +18,7 @@ cls
 cd %USERPROFILE%\Desktop
 cls
 echo ===============================================================
-echo                  Kidou_Software - Menu Principal
+echo                 Kidou_Software - Menu Principal
 echo ===============================================================
 echo.
 echo 1. Reparation de Windows (Automatique)                      
@@ -44,7 +44,7 @@ if "%choice%"=="5" goto option5
 if "%choice%"=="6" goto option6
 if "%choice%"=="7" goto option7
 if "%choice%"=="8" goto option8
-if "%choice%"=="0" goto option99
+if "%choice%"=="0" goto option0
 
 goto menu
 
@@ -352,7 +352,7 @@ echo.
 Pause
 goto menu
 
-:option99
+:option0
 exit
 
 :reboot
