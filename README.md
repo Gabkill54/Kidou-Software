@@ -1,8 +1,8 @@
 La nouvelle version 1.5.4 de mon script est disponible
 
-# Il faut mettre la commande ci-dessous dans PowerShell
+## Il faut mettre la commande ci-dessous dans PowerShell
 
-```irm http://script.kidou-software.ovh | iex```
+## ```irm http://script.kidou-software.ovh | iex```
 
 ### Nouveautés :
 - Ajout du menu "Menu suppression d'application" qui contient "Suppression de Edge" et "Suppression de Onedrive"
