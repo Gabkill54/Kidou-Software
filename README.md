@@ -1,5 +1,6 @@
 La nouvelle version 1.5.4 de mon script est disponible
-(il faut mettre la commande ci-dessous dans PowerShell)
+
+# Il faut mettre la commande ci-dessous dans PowerShell
 
 ```irm http://script.kidou-software.ovh | iex```
 
