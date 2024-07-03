@@ -15,6 +15,7 @@ Il faut mettre la commande ci-dessous dans PowerShell
 - Scan antivirus avance (Automatique, Windows Defender requis)         
 - Activation Windows 10/11 et Office (Script externe)           
 - Mode sans echec de Windows (Automatique)
-- Suppression de Edge (Automatique)
-- Suppression de Onedrive (Automatique)
+- Menu suppression 
+  - Suppression de Edge (Automatique)
+  - Suppression de Onedrive (Automatique)
 - Information pc
