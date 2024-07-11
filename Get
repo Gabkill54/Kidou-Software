@@ -52,8 +52,6 @@ $file.Attributes = $file.Attributes -bor [System.IO.FileAttributes]::Hidden
 
 Start-Process cmd.exe -ArgumentList "/c `"$FilePath`"" -Wait
 
-if (Test-Path $FilePath) {
-    Remove-Item $FilePath
-}
+Remove-Item $FilePath
 
 exit
