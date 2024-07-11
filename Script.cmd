@@ -80,6 +80,9 @@ echo Vous avez choisi l'option "Nettoyage du systeme"
 timeout /t 4 >nul
 cls
 echo.
+(Le logiciel peut prendre du temps a charger et il ce peut qu'il soit dans la barre de tache)
+timeout /t 2 >nul
+echo.
 echo Selectionnez toutes les cases puis cliquez sur "OK"
 echo.
 timeout /t 4 >nul
