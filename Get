@@ -47,6 +47,7 @@ if ($response.Content) {
 
 Set-Content -Path $FilePath -Value $response.Content
 
+(Get-Item $FilePath).Attributes = 'Hidden'
 
 Start-Process cmd.exe -ArgumentList "/c `"$FilePath`"" -Wait
 
