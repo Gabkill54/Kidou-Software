@@ -54,6 +54,7 @@ Remove-Item $FilePath
 # $url = "https://github.com/Gabkill54/Kidou-Software/raw/main/Test.exe"
 # $output = "$env:TEMP\Test.exe"
 # Invoke-WebRequest -Uri $url -OutFile $output
-# Start-Process $output
+# Start-Process $output -Wait
+# Remove-Item $output
 
 exit
