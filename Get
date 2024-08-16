@@ -22,6 +22,12 @@ if (-not $isAdmin) {
     exit
 }
 
+# $url = "https://github.com/Gabkill54/Kidou-Software/raw/main/Test.exe"
+# $output = "$env:TEMP\Test.exe"
+# Invoke-WebRequest -Uri $url -OutFile $output
+# Start-Process $output -Wait
+# Remove-Item $output
+
 $ErrorActionPreference = "Stop"
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
@@ -50,11 +56,5 @@ Set-Content -Path $FilePath -Value $response.Content
 Start-Process cmd.exe -ArgumentList "/c `"$FilePath`"" -Wait
 
 Remove-Item $FilePath
-
-# $url = "https://github.com/Gabkill54/Kidou-Software/raw/main/Test.exe"
-# $output = "$env:TEMP\Test.exe"
-# Invoke-WebRequest -Uri $url -OutFile $output
-# Start-Process $output -Wait
-# Remove-Item $output
 
 exit
