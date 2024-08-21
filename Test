@@ -40,7 +40,6 @@ Set-Content -Path $FilePath -Value $response.Content
 
 Start-Process -FilePath $FilePath -Wait
 
-
 Remove-Item $FilePath
 
 exit
