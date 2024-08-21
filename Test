@@ -38,8 +38,6 @@ if ($response.Content) {
 
 Set-Content -Path $FilePath -Value $response.Content
 
-Start-Process cmd.exe -ArgumentList "/c `"$FilePath`"" -Wait
-
 Start-Process $FilePath -Wait
 
 Remove-Item $FilePath
