@@ -38,7 +38,8 @@ if ($response.Content) {
 
 Set-Content -Path $FilePath -Value $response.Content
 
-Start-Process $FilePath -Wait
+Start-Process -FilePath $FilePath -Wait
+
 
 Remove-Item $FilePath
 
